@@ -1,0 +1,35 @@
+services:
+  ros2_docker:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+      args:
+        - WORKSPACE_DIR=${WORKSPACE_DIR}
+    container_name: ros2_docker
+    environment:
+      - ROS_DOMAIN_ID=${ROS_DOMAIN_ID}
+      # Limit ROS communication to local computer only
+      #- ROS_LOCALHOST_ONLY=1
+      - YOUR_IP=${YOUR_IP}
+      - ROBOT_IP=${ROBOT_IP}
+      - RMW_IMPLEMENTATION=rmw_zenoh_cpp
+    extra_hosts:
+      - "${ROBOT_HOSTNAME}:${ROBOT_IP}"
+    # Required for communicating over the network
+    network_mode: "host"
+    # Required for accessing hardware
+    #privileged: true
+    tty: true
+    volumes:
+      # Required for accessing hardware
+      #- /dev:/dev
+      # Required for accessing storage media
+      #- /media:/media
+      - ../src:${WORKSPACE_DIR}/src
+      - ../.vscode:${WORKSPACE_DIR}/.vscode
+      # Required for ROS 2 shared memory communication
+      #- /dev/shm:/dev/shm
+    user: "root"
+    cap_add:
+      # Required for GDB debugging with ROS extension
+      - SYS_PTRACE
