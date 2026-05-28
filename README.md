@@ -5,7 +5,7 @@ This repository contains a Docker workspace template for [**ROS 2**](https://www
 Here is an overview of the structure of this repository:
 
 ```bash
-ros/
+docker-ros2/
 ├── docker/                           # Docker and Docker-Compose configuration
 │   ├── docker-compose.yml              # Base Docker-Compose file containing all the basic Docker set-up
 │   ├── docker-compose-gui.yml          # Extends the base Docker-Compose file by X11-forwarding for graphic user interfaces
