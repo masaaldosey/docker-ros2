@@ -61,3 +61,8 @@ $ docker exec -it ros2_docker bash
 ```
 
 Alternatively use the corresponding [**Visual Studio Code Dev Containers integration**](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers). In latter case the configuration can be adjusted in `.devcontainer/devcontainer.json`. Using the Docker through Visual Studio Code is much easier and is therefore recommended!
+
+
+## Credits
+
+this repo is heavily inspired by [docker-for-robotics](https://github.com/2b-t/docker-for-robotics).
