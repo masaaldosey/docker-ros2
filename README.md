@@ -9,6 +9,7 @@ docker-ros2/
 ├── docker/                           # Docker and Docker-Compose configuration
 │   ├── docker-compose.yml              # Base Docker-Compose file containing all the basic Docker set-up
 │   ├── docker-compose-gui.yml          # Extends the base Docker-Compose file by X11-forwarding for graphic user interfaces
+│   ├── docker-compose-gui-nvidia.yml   # Extends the graphic user interface Docker-Compose file with the Nvidia runtime
 │   ├── Dockerfile                      # Dockerfile containing ROS 2 and the base dependencies
 │   └── .env                            # Environment variables to be considered by Docker Compose
 ├── src/                              # Source folder mounted inside the Docker container
